@@ -1,0 +1,24 @@
+<template>
+    <lightning-card title="Traveler Operations Console" icon-name="standard:travel_mode">
+        <div class="slds-p-horizontal_small">
+            <lightning-input
+                type="search"
+                label="Search by Passport Number"
+                value={searchTerm}
+                onchange={handleSearchChange}>
+            </lightning-input>
+            <lightning-button
+                label="Mass Approve"
+                variant="brand"
+                class="slds-m-top_small slds-m-bottom_small"
+                onclick={handleMassApprove}>
+            </lightning-button>
+            <lightning-datatable
+                key-field="Id"
+                data={travelers}
+                columns={columns}
+                onrowselection={handleRowSelection}>
+            </lightning-datatable>
+        </div>
+    </lightning-card>
+</template>

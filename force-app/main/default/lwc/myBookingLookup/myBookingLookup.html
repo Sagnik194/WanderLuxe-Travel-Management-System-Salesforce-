@@ -1,0 +1,36 @@
+<template>
+    <lightning-card title="My Traveler Booking" icon-name="standard:travel_mode">
+        <div class="slds-p-horizontal_medium">
+            <div class="slds-form-element slds-m-bottom_medium">
+                <lightning-input
+                    type="text"
+                    label="Enter Your Passport Number"
+                    value={passportNumber}
+                    onchange={handleInputChange}
+                    required>
+                </lightning-input>
+                <lightning-button
+                    label="Lookup Booking"
+                    variant="brand"
+                    class="slds-m-top_small"
+                    onclick={handleLookup}>
+                </lightning-button>
+            </div>
+
+            <template if:true={booking}>
+                <div class="slds-box slds-theme_shade slds-m-top_medium">
+                    <p><strong>Name:</strong> {booking.Name}</p>
+                    <p><strong>Booking Status:</strong> {booking.Booking_Status__c}</p>
+                    <p><strong>Travel Type:</strong> {booking.Travel_Type__c}</p>
+                    <p><strong>VIP Grade:</strong> {booking.VIP_Grade__c}</p>
+                </div>
+            </template>
+
+            <template if:true={errorMessage}>
+                <div class="slds-text-color_error slds-m-top_medium">
+                    {errorMessage}
+                </div>
+            </template>
+        </div>
+    </lightning-card>
+</template>
